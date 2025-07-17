@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "Correos.Controllers.CorreosController",
+    "Method": "EnviarCorreos",
+    "RelativePath": "api/Correos/EnviarCorreos",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Correos.MailKit.MailRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
