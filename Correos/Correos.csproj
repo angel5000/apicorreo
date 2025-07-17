@@ -17,4 +17,8 @@
   </Content>
 </ItemGroup>
 
+<ItemGroup>
+  <EmbeddedResource Include="MailKit\plantilla.html" />
+</ItemGroup>
+
 </Project>
