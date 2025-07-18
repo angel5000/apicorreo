@@ -21,7 +21,7 @@ namespace Correos.MailKit
             htmlBody = htmlBody.Replace("{Nombre}", request.usuario);
             var email = new MimeMessage();
 
-            email.From.Add(MailboxAddress.Parse("delllancer@gmail.com"));
+            email.From.Add(MailboxAddress.Parse("joselitorugel17@gmail.com));
             email.To.Add(MailboxAddress.Parse(request.toEmail));
             email.Subject = request.subject;
            
@@ -53,7 +53,7 @@ namespace Correos.MailKit
 
             using var smtp = new SmtpClient();
             await smtp.ConnectAsync("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
-            await smtp.AuthenticateAsync("delllancer@gmail.com", "zmrv zwkh qdjo fpsi");
+            await smtp.AuthenticateAsync("joselitorugel17@gmail.com", "hbow qzjq elqn tlyz");
             await smtp.SendAsync(email);
             await smtp.DisconnectAsync(true);
         }
