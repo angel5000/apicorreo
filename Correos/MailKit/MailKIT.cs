@@ -8,10 +8,16 @@ namespace Correos.MailKit
     {
         public async Task SendEmailAsync(MailRequest request)
         {
-            var templatePath = Path.Combine(Directory.GetCurrentDirectory(), "MailKit", "plantilla.html");
-            var htmlBody = await File.ReadAllTextAsync(templatePath);
+            var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            var templatePath = Path.Combine(baseDirectory, "MailKit", "plantilla.html");
 
-            htmlBody = htmlBody.Replace("{Nombre}", "Usuario");
+            // Verificar si el archivo existe
+            if (!File.Exists(templatePath))
+            {
+                throw new FileNotFoundException($"No se encontró el archivo de plantilla en: {templatePath}");
+            }
+
+            var htmlBody = await File.ReadAllTextAsync(templatePath);
 
             var email = new MimeMessage();
             email.From.Add(MailboxAddress.Parse("delllancer@gmail.com"));
