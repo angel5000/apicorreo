@@ -18,9 +18,9 @@ namespace Correos.MailKit
             }
 
             var htmlBody = await File.ReadAllTextAsync(templatePath);
-
+            htmlBody = htmlBody.Replace("{Nombre}", request.usuario);
             var email = new MimeMessage();
-            request.body = htmlBody.Replace("{Nombre}", request.usuario);
+
             email.From.Add(MailboxAddress.Parse("delllancer@gmail.com"));
             email.To.Add(MailboxAddress.Parse(request.toEmail));
             email.Subject = request.subject;
