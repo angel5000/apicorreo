@@ -29,7 +29,7 @@ namespace Correos.MailKit
             {
                 HtmlBody = htmlBody
             };
-
+            request.body = htmlBody.Replace("{Nombre}", request.usuario);
             // Adjuntar archivo si viene incluido
             if (request.Attachment != null && request.Attachment.Length > 0)
             {
@@ -47,7 +47,7 @@ namespace Correos.MailKit
                 }
 
             }
-
+        
             email.Body = builder.ToMessageBody();
 
             using var smtp = new SmtpClient();
