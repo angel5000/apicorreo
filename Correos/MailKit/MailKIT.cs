@@ -20,16 +20,17 @@ namespace Correos.MailKit
             var htmlBody = await File.ReadAllTextAsync(templatePath);
 
             var email = new MimeMessage();
+            request.body = htmlBody.Replace("{Nombre}", request.usuario);
             email.From.Add(MailboxAddress.Parse("delllancer@gmail.com"));
             email.To.Add(MailboxAddress.Parse(request.toEmail));
             email.Subject = request.subject;
-
+           
             // Construye el cuerpo del mensaje con multipart
             var builder = new BodyBuilder
             {
                 HtmlBody = htmlBody
             };
-            request.body = htmlBody.Replace("{Nombre}", request.usuario);
+          
             // Adjuntar archivo si viene incluido
             if (request.Attachment != null && request.Attachment.Length > 0)
             {
