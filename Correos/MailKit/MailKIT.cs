@@ -21,7 +21,7 @@ namespace Correos.MailKit
             htmlBody = htmlBody.Replace("{Nombre}", request.usuario);
             var email = new MimeMessage();
 
-            email.From.Add(MailboxAddress.Parse("joselitorugel17@gmail.com));
+            email.From.Add(MailboxAddress.Parse("joselitorugel17@gmail.com"));
             email.To.Add(MailboxAddress.Parse(request.toEmail));
             email.Subject = request.subject;
            
